@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="个人投资研究实验室——公开资料整理与研究框架演示。" />
+    <meta name="description" content="共青云投资研究室：A 股公开资料研究与复盘。" />
     <title>共青云投资研究室</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,77 +12,77 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="返回首页"><span class="brand-mark">Q</span>共青云投资研究室</a>
-      <nav><a href="#method">研究方法</a><a href="#dashboard">研究看板</a><a href="#about">关于本站</a></nav>
+      <a class="brand" href="index.html"><span class="brand-mark">Q</span>共青云投资研究室</a>
+      <nav><a class="active" href="index.html">研究助手</a><a href="archive.html">研究归档</a><a href="updates.html">公告与更新</a></nav>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <p class="eyebrow">PERSONAL INVESTING LAB · SINCE 2026</p>
-        <h1>用证据，而不是情绪，<br />建立自己的投资研究系统。</h1>
-        <p class="hero-copy">我是共青云。这是我的 A 股研究笔记：整理公开信息、记录研究假设、追踪观点是否被事实验证。</p>
-        <a class="button" href="#dashboard">进入研究看板 <span>↓</span></a>
+    <main>
+      <section class="hero compact-hero">
+        <p class="eyebrow">A-SHARE RESEARCH LAB · VERSION 0.2</p>
+        <h1>把每一次研究，<br />变成可核验的记录。</h1>
+        <p class="hero-copy">输入代码或公司名称，生成研究任务卡，整理公开资料、风险和待核验问题。</p>
       </section>
 
-      <section class="notice" aria-label="重要风险提示">
-        <strong>重要提示</strong><span>本站仅作个人学习、公开资料整理与研究方法展示，不构成任何证券、基金或其他投资建议。市场有风险，决策请独立判断。</span>
-      </section>
+      <section class="notice"><strong>重要提示</strong><span>本站仅作公开资料整理与研究方法展示，不构成证券、基金或其他投资建议；不提供买卖、仓位或卖出指令。</span></section>
 
-      <section id="method" class="section method">
-        <div class="section-heading"><p class="eyebrow">01 · METHOD</p><h2>每个观点都要经得起追问</h2></div>
-        <div class="method-grid">
-          <article><span>01</span><h3>先写假设</h3><p>公司为什么可能变好？什么事实会推翻这个判断？先写下，再看结果。</p></article>
-          <article><span>02</span><h3>分情景估值</h3><p>只展示乐观、基准、保守三种情景和前提，不把不确定性伪装成一个“准确价格”。</p></article>
-          <article><span>03</span><h3>追踪新证据</h3><p>用新闻与公告验证原有逻辑，区分事实、解读与尚待确认的信息。</p></article>
+      <section class="section assistant-section">
+        <div class="section-heading"><p class="eyebrow">01 · RESEARCH ASSISTANT</p><h2>研究助手</h2></div>
+        <div class="assistant-box">
+          <div>
+            <h3>从一个研究对象开始</h3>
+            <p>目前已收录宝钢股份（600019）的公开财报研究卡。输入其他股票后，可先生成通用研究任务清单。</p>
+          </div>
+          <form id="research-form" class="research-form">
+            <label class="sr-only" for="query">股票代码或公司名称</label>
+            <input id="query" maxlength="24" placeholder="输入代码或名称，例如 600019 / 宝钢股份" required />
+            <button type="submit">生成研究卡</button>
+          </form>
+          <p class="form-note">本原型不连接交易账户；已收录信息会标注来源和日期。</p>
         </div>
+        <div id="research-result" class="research-result" aria-live="polite"></div>
       </section>
 
-      <section id="dashboard" class="section dashboard">
-        <div class="section-heading"><p class="eyebrow">02 · DASHBOARD</p><h2>研究看板 <small>演示数据</small></h2></div>
+      <section class="section dashboard-section">
+        <div class="section-heading"><p class="eyebrow">02 · PERSONAL DASHBOARD</p><h2>我的研究看板</h2></div>
         <div class="dashboard-layout">
-          <div class="panel watchlist-panel">
-            <div class="panel-title"><h3>我的观察清单</h3><span id="watch-count">3 项</span></div>
+          <article class="panel watchlist-panel">
+            <div class="panel-title"><h3>观察清单</h3><span id="watch-count">0 项</span></div>
             <div id="watchlist" class="watchlist"></div>
             <form id="watch-form" class="add-form">
               <label class="sr-only" for="ticker">股票代码或名称</label>
-              <input id="ticker" maxlength="16" placeholder="添加代码或名称，例如 600000" required />
+              <input id="ticker" maxlength="24" placeholder="添加代码或名称" required />
               <button type="submit">添加</button>
             </form>
-            <p class="form-note">仅保存在当前浏览器；不连接行情或交易账户。</p>
-          </div>
+            <p class="form-note">保存在当前浏览器。点击名称可直接生成研究卡。</p>
+          </article>
 
           <article class="panel thesis-panel">
-            <div class="panel-title"><h3>首份研究：已确认事实</h3><span class="tag">截至 2026.08.07</span></div>
+            <div class="panel-title"><h3>最新研究对象</h3><span class="tag">截至 2026.08.08</span></div>
             <p class="company-name">宝钢股份 <span>· 600019 · A 股</span></p>
-            <div class="thesis-row"><span>它靠什么赚钱</span><strong>钢铁制造、加工配送及其他业务；冷轧碳钢板卷是主要产品之一。</strong></div>
-            <div class="thesis-row"><span>2025 年已披露</span><strong>营收 3,175.1 亿元；归母净利润约 103.5 亿元。</strong></div>
-            <div class="thesis-row"><span>2026 年一季度</span><strong>营收 770.6 亿元，同比 +5.7%；归母净利润 22.25 亿元，同比 −8.6%。</strong></div>
-            <button id="copy-template" class="text-button">复制研究模板</button>
+            <div class="thesis-row"><span>已确认事实</span><strong>2026 年一季度营收同比增长，归母净利润同比下降。</strong></div>
+            <div class="thesis-row"><span>待核验问题</span><strong>成本、售价和产品结构如何共同影响盈利？</strong></div>
+            <a class="text-button" href="archive.html">查看完整研究记录 →</a>
           </article>
 
-          <article class="panel scenario-panel">
-            <div class="panel-title"><h3>宝钢股份研究摘要</h3><span class="tag">第一版</span></div>
-            <p class="scenario-intro">基于 2025 年报与 2026 年一季报；以下是研究记录，不是投资建议。</p>
-            <div class="scenario optimistic"><div><span>利润变化</span><small>一季度收入增长，但成本增速更快，毛利与归母净利润同比下滑。</small></div><b>已记录</b></div>
-            <div class="scenario base"><div><span>盈利关键</span><small>持续追踪钢材售价与铁矿石、焦煤等原燃料成本之间的差额。</small></div><b>待核验</b></div>
-            <div class="scenario conservative"><div><span>产品结构</span><small>观察冷轧、汽车板、硅钢等高附加值产品能否改善盈利质量。</small></div><b>待核验</b></div>
-            <p class="data-note">2026 年半年报披露后，更新收入、利润、现金流、销量及产品结构；不做价格预测或买卖结论。</p>
+          <article class="panel summary-panel">
+            <div class="panel-title"><h3>本周研究纪律</h3><span class="tag">方法</span></div>
+            <ol class="research-rules">
+              <li>先记录原始来源，再写自己的解读。</li>
+              <li>把事实、推测和未知问题分开。</li>
+              <li>用新公告和财报复盘旧判断。</li>
+            </ol>
+            <a class="text-button" href="updates.html">查看公告与更新 →</a>
           </article>
         </div>
       </section>
 
-      <section class="section news-section">
-        <div class="section-heading"><p class="eyebrow">03 · EVIDENCE LOG</p><h2>信息不是结论</h2></div>
-        <div class="news-list">
-          <article><time>2026.04.30</time><div><span class="tag">公司一季报</span><h3><a href="https://static.cninfo.com.cn/finalpage/2026-04-30/1225257456.PDF" target="_blank" rel="noopener">营收同比增长，归母净利润同比下降</a></h3><p>这是当前用于本站的最新季度财务数据。下一步要从半年报中核验利润、现金流和产品结构是否变化。</p></div></article>
-          <article><time>2026.04.30</time><div><span class="tag">公司年报</span><h3><a href="https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12277876&amp;stockid=600019" target="_blank" rel="noopener">2025 年主营结构与年度经营数据</a></h3><p>年报显示钢铁制造、加工配送和其他三类业务；2025 年冷轧碳钢板卷收入 1,155.2 亿元、毛利率 8.5%。</p></div></article>
-          <article><time>下一步</time><div><span class="tag">研究复盘</span><h3>等待 2026 年半年报后，更新这份研究摘要</h3><p>先比较收入、归母净利润、经营现金流和主要产品销量，再判断上述两条“待核验”结论能否获得支持。</p></div></article>
+      <section class="section method-section">
+        <div class="section-heading"><p class="eyebrow">03 · METHOD</p><h2>一个研究卡包含什么？</h2></div>
+        <div class="method-grid">
+          <article><span>01</span><h3>已确认事实</h3><p>只记录财报、公告、公司披露等可追溯内容，并附上日期和链接。</p></article>
+          <article><span>02</span><h3>待核验问题</h3><p>把暂时不能回答的问题列出来，避免把猜测写成结论。</p></article>
+          <article><span>03</span><h3>风险与复盘</h3><p>写清什么新事实会推翻原有理解，并在新一期报告后更新。</p></article>
         </div>
-      </section>
-
-      <section id="about" class="section about">
-        <p class="eyebrow">ABOUT</p><h2>这是我的公开研究笔记，<br />也是一个不断改进的实验。</h2>
-        <p>我是共青云，主要关注 A 股。本网站用于记录个人研究过程。上线前将保留风险提示，并避免将内容表述为针对他人的买卖建议。</p>
       </section>
     </main>
     <footer>© 2026 共青云投资研究室 <span>·</span> A 股个人研究原型</footer>
